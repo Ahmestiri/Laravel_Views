@@ -58,7 +58,7 @@
                         @if (Route::has('login'))
                             @auth
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/profile/{{Auth::user()->id}}" class="text-sm underline">My Profile</a>
+                                    <a class="nav-link" href="/profile/{{Auth::user()->id}}">My Profile</a>
                                 </li>
                                 @else
                                     <li class="nav-item">
@@ -88,6 +88,13 @@
                     </div>
                     <div class="col-md-4 col-6">
                         <div>Bureau Members : </div>
+                        @foreach($users as $user)
+                            @if ($user->bureau == 'on')
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <a class="nav-link" href="/profile/{{$user->id}}"> -{{$user->firstname}}<span class="text-uppercase"> {{$user->lastname}}</span></a>
+                            </div>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
                 <hr>

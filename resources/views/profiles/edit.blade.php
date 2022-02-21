@@ -106,6 +106,12 @@
                                     @enderror
                                 </div>
                             </div>
+                            <!-- Bureau -->
+                            <div id="class" class="col-12 d-flex justify-content-center">
+                                <input class="form-check-input mr-5" type="checkbox" name="bureau" id="bureau" value="{{ old('Bureau') ? 'checked' : '' }}">
+                                <label class="form-check-label ml-2" for="bureau">{{ __('Bureau') }}</label>
+                            </div>
+
                             <!-- Create New Profile & Go Back Button -->
                             <hr>
                             <div class="mb-3 col-10 offset-1">

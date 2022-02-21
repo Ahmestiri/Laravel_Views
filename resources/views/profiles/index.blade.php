@@ -15,23 +15,30 @@
 @section('content')
 <div class="container">
     <div class="col-12 mt-5 pt-5 pb-5" id="container">
-            <div class="col-7" id="image-box">
-                <img id = "image" src="{{$user->profile->profileImage()}}">
-            </div> 
-            <div class="col-5" id = 'description'>
-                <h3 class="mb-3 text-center">{{$user->firstname}} {{$user->lastname}}</h3>
-                @if (Auth::check() && Auth::user()->id == $user->id)
-                    <hr>
-                    <a href="/profile/{{$user->id}}/edit"><button type="button" class="btn btn-primary col-10 offset-1">Edit</button></a>
-                @endif
-                <hr>
-                <div><b>Name</b> : {{$user->firstname}} {{$user->lastname}}</div>
-                <div><b>Class</b> : {{$user->class}}</div>
-                <div><b>Pole</b> : {{$user->pole}}</div>
-                <div><b>E-mail</b> : {{$user->email}}</div>
-                <hr>
-                <div><b>Link</b> : <a href="{{$user->profile->url}}"> {{$user->profile->url}} </a></div>
-            </div>
+        <!-- Profile Image--> 
+        <div class="col-7" id="image-box">
+            <img id = "image" src="{{$user->profile->profileImage()}}">
+        </div> 
+        <div class="col-5" id = 'description'>
+        <h3 class="mb-3 text-center">{{$user->firstname}} {{$user->lastname}}</h3>
+        <!-- Edit Button--> 
+        @if (Auth::check() && Auth::user()->id == $user->id)
+            <hr>
+            <a href="/profile/{{$user->id}}/edit"><button type="button" class="btn btn-primary col-10 offset-1">Edit</button></a>
+        @endif
+        <!-- Main Content--> 
+        <hr>
+        <div><b>Name</b> : {{$user->firstname}} {{$user->lastname}}</div>
+        <div><b>Class</b> : {{$user->class}}</div>
+        <div><b>Pole</b> : {{$user->pole}}</div>
+        <div><b>E-mail</b> : {{$user->email}}</div>
+        <hr>
+        <div><b>Link</b> : <a href="{{$user->profile->url}}"> {{$user->profile->url}} </a></div>
+        <!-- Delete Button --> 
+        @if (Auth::check() && Auth::user()->id == $user->id)
+            <hr>
+            <a href="/profile/{{$user->id}}/delete"><button type="button" class="btn btn-danger col-10 offset-1">Delete Profile</button></a>
+        @endif
     </div>
 </div>
 @endsection

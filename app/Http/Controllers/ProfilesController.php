@@ -27,6 +27,7 @@ class ProfilesController extends Controller
             'email' => 'required',
             'class' => 'required',
             'pole' => 'required',
+            'bureau' => '',
         ]);
         #Update User
         auth()->user()->update($dataUser);
@@ -46,5 +47,17 @@ class ProfilesController extends Controller
         auth()->user()->profile->update(array_merge($dataProfile, $imageArray ?? []));
         #Redirect to index
         return redirect('/profile/' . auth()->user()->id);
+    }
+    //-------- Profile Delete --------//
+    public function destroy(\App\Models\User $user)
+    {
+        #Delete Profile 
+        if ($user->id == auth()->user()->id) {
+            $user->delete();
+        } else {
+            abort(403);
+        }
+        #Redirect to index
+        return redirect('/');
     }
 }

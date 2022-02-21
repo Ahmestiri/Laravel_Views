@@ -7,6 +7,9 @@
     background-color: #212529;
     border-radius: 10px;
 }
+#row{
+    margin-left:-10px;
+}
 body{
     background-image: url('../background/Image.jpg');
     background-position: 50% 50%;
@@ -30,6 +33,7 @@ body{
     #lastname{
         margin-left:-5px;
     }
+
 
 }
 @media (min-width:1200px){

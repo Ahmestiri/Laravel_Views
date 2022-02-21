@@ -35,7 +35,7 @@
                                     </span>
                                 @enderror
                             </div>
-                                <!-- Last Name --> 
+                            <!-- Last Name --> 
                             <label for="lastname" class="col-form-label">{{ __('Last Name') }}</label>
                             <div class="col-md-4">
                                 <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
@@ -82,8 +82,15 @@
                         <div id="class" class="col-12 mb-3 d-flex">
                             <!-- Class --> 
                             <label for="class" class="col-form-label">{{ __('Class') }}</label>
-                            <div class="col-lg-4 mr-5">
-                                <input id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="class" value="{{ old('class') }}" required autocomplete="class" autofocus>
+                            <div class="col-lg-4 col-3 mr-5">
+                                <div class="col-12">
+                                    <input type="radio" name="class" value="INDP1">
+                                    <label for="INDP1">INDP1</label>
+                                </div>
+                                <div class="col-12">
+                                    <input type="radio" name="class" value="INDP2">
+                                    <label for="INDP2">INDP2</label>  
+                                </div>
                                 @error('class')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>                                       
@@ -92,14 +99,36 @@
                             </div>
                             <!-- Pole--> 
                             <label id="pole-text" for="pole" class="col-form-label">{{ __('Pole') }}</label>
-                            <div id="pole" class="col-lg-4">
-                                <input type="text" class="form-control @error('pole') is-invalid @enderror" name="pole" value="{{ old('pole') }}" required autocomplete="pole" autofocus>
+                            <div id="pole" class="col-6">
+                                <div class="row" id="row">
+                                    <div class="col-7 col-md-5 col-lg-4">
+                                        <input type="radio" name="pole" value="Projet">
+                                        <label for="Projet">Projet</label>
+                                    </div>
+                                    <div class="col-5 col-md-5 col-lg-5">
+                                        <input type="radio" name="pole" value="RH">
+                                        <label for="RH">RH</label>
+                                    </div>
+                                    <div class="col-7 col-md-5 col-lg-4">
+                                        <input type="radio" name="pole" value="DevCo">
+                                        <label for="DevCo">DevCo</label>  
+                                    </div>
+                                    <div class="col-5 col-md-6 col-lg-5">
+                                        <input type="radio" name="pole" value="Marketing">
+                                        <label for="Marketing">Marketing</label><br>                              
+                                    </div>    
+                                </div>
                                 @error('pole')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+                        <!-- Bureau -->
+                        <div id="class" class="col-12 d-flex justify-content-center">
+                            <input class="form-check-input mr-5" type="checkbox" name="bureau" id="bureau" {{ old('Bureau') ? 'checked' : '' }}>
+                            <label class="form-check-label ml-2" for="bureau">{{ __('Bureau') }}</label>
                         </div>
                         <!-- Create New Profile Button -->
                         <hr>
