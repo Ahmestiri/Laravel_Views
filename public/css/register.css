@@ -1,0 +1,48 @@
+#card{
+    border-radius: 10px;
+    color:white;
+    border: 1px solid #212529;
+}
+#card-body{
+    background-color: #212529;
+    border-radius: 10px;
+}
+body{
+    background-image: url('../background/Image.jpg');
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family:Nunito;
+}
+@media (min-width:992px) and (max-width:1199px){
+    #email , #class , #pole{
+        margin-left:18px;
+    }
+    #pole-text{
+        margin-left:38px;
+    }
+    #password{
+        margin-left:3px;
+    }
+    #confirm{
+        margin-left:5px;
+    }
+    #lastname{
+        margin-left:-5px;
+    }
+
+}
+@media (min-width:1200px){
+    #email , #class , #pole , #lastname{
+        margin-left:18px;
+    }
+    #pole-text{
+        margin-left:65px;
+    }
+    #password{
+        margin-left:3px;
+    }
+    #confirm{
+        margin-left:5px;
+    }
+}

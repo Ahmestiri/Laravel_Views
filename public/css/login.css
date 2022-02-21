@@ -1,0 +1,16 @@
+#card{
+    border-radius: 10px;
+    color:white;
+    border: 1px solid #212529;
+}
+#card-body{
+    background-color: #212529;
+    border-radius: 10px;
+}
+body{
+    background-image: url('../background/Image.jpg');
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family:Nunito;
+}

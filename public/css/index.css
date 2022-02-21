@@ -1,0 +1,49 @@
+#container{
+    background-color: #212529; 
+    border-radius: 10px;
+    color:white;
+    position:relative;
+}
+#image{
+    width:90%;
+}
+body{
+    background-image: url('../background/Image.jpg');
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family:Nunito;
+}
+#description{
+    font-size: 20px;
+}
+@media (min-width:768px){
+    #container{
+        display: flex;
+    }
+}
+@media (min-width:768px) and (max-width:992px){
+    #image{
+        width:400px;
+    }
+    #image-box{
+        margin-right:30px;
+    }   
+    #description{
+        width:270px;
+        font-size: 14px;
+    }
+}
+@media (max-width:767px){
+
+    #image{
+        width:180%;
+    }
+    .btn{
+        margin-top:30px;
+        
+    }
+    #description{
+        display: inline;
+    }
+}
