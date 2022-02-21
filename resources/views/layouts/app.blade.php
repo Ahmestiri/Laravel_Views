@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm ">
+        <nav data-aos ="" class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm ">
             <div class="container">
                 <!-- Brand Name -->
                 <div id="brand" style="margin-left:100px">
@@ -74,5 +74,9 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
