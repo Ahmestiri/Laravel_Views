@@ -7,15 +7,15 @@
     <title>SJE Members</title>
     <link rel="icon" href="/brand/icon.ico">
     <!-- CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <link href="/css/login.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
-
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <div class="d-flex justify-content-center">
+    <div data-aos = "fade-up" data-aos-delay = "1000" data-aos-duration ="2000" data-aos-offset = "200" class="d-flex justify-content-center">
         <div class=" mt-5 col-6">
             <div id = "card" class="card">
                 <div id = "card-body" class="card-body">

@@ -12,6 +12,7 @@
     <link href="/css/welcome.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script>
     window.onload = function () {
         var chart = new CanvasJS.Chart("chartContainer", {
@@ -106,7 +107,7 @@
                         @endforeach
                     </div>
                     <hr>
-                    <div class="row mt-3" id="container">
+                    <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "500" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
                         <h3>Pôle Developpement Commercial et Partenariat</h3>
                         @foreach($users as $user)
                             @if ($user->pole == 'DevCo')
@@ -119,7 +120,7 @@
                         @endforeach
                     </div>
                     <hr>
-                    <div class="row mt-3" id="container">
+                    <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "1000" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
                         <h3>Pôle Marketing</h3>
                         @foreach($users as $user)
                             @if ($user->pole == 'Marketing')
@@ -132,7 +133,7 @@
                         @endforeach
                     </div>
                     <hr>
-                    <div class="row mt-3" id="container">
+                    <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "1500" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
                         <h3>Pôle Ressources Humaines et Formation</h3>
                         @foreach($users as $user)
                             @if ($user->pole == 'RH')
@@ -184,5 +185,9 @@
             </div>
         </main>
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>
