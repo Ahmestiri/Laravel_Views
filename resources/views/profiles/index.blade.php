@@ -33,11 +33,16 @@
         <div><b>Pole</b> : {{$user->pole}}</div>
         <div><b>E-mail</b> : {{$user->email}}</div>
         <hr>
-        <div><b>Link</b> : <a href="{{$user->profile->url}}"> {{$user->profile->url}} </a></div>
+        <div><b>Link</b> :<a class="btn btn-outline-light btn-floating ml-3" href="{{$user->profile->url}}" role="button"><i class="fab fa-facebook-f"></i></a></div>
+        @if ($user->bureau == 'on')
+        <hr>
+        <div><b>Bureau : </b><span> Pole {{$user->pole}}</span></div> 
+        @endif
+        <hr>
         <!-- Delete Button --> 
         @if (Auth::check() && Auth::user()->id == $user->id)
-            <hr>
             <a href="/profile/{{$user->id}}/delete"><button type="button" class="btn btn-danger col-10 offset-1">Delete Profile</button></a>
+            <hr>
         @endif
     </div>
 </div>

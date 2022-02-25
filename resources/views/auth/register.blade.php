@@ -7,6 +7,7 @@
     <title>SJE Members</title>
     <link rel="icon" href="/brand/icon.ico">
     <!-- CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <link href="/css/register.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -14,9 +15,10 @@
 
 @extends('layouts.app')
 @section('content')
+
 <div class="container">
-    <div class="d-flex justify-content-center">
-        <div class=" mt-3 col-10">
+    <div data-aos = "fade-up" data-aos-delay = "1000" data-aos-duration ="1000" data-aos-offset = "200" class="d-flex justify-content-center">
+        <div class="col-10">
             <div id = "card" class="card">
                 <div id = "card-body" class="card-body">
                     <h1 class="mb-3 ml-2">Register </h1>
@@ -125,7 +127,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <!-- Bureau -->
+                        <!-- Bureau Checkbox -->
                         <div id="class" class="col-12 d-flex justify-content-center">
                             <input class="form-check-input mr-5" type="checkbox" name="bureau" id="bureau" {{ old('Bureau') ? 'checked' : '' }}>
                             <label class="form-check-label ml-2" for="bureau">{{ __('Bureau') }}</label>

@@ -12,31 +12,6 @@
     <link href="/css/welcome.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script>
-    window.onload = function () {
-        var chart = new CanvasJS.Chart("chartContainer", {
-            backgroundColor: "transparent",
-            animationEnabled: true,
-            data: [{
-                type: "pie",
-                startAngle: 240,
-                yValueFormatString: "##0",
-                indexLabelFormatter: function() {
-                    return "";
-                },
-                dataPoints: [
-                    { y: {{$projet}}, label: "Projet",indexLabelFontColor: "white" },
-                    { y: {{$rh}}, label: "RH",indexLabelFontColor: "white" },
-                    { y: {{$devco}}, label: "DevCo",indexLabelFontColor: "white" },
-                    { y: {{$marketing}}, label: "Marketing",indexLabelFontColor: "white" }
-                ]
-            }]
-        });
-        chart.render();
-    }   
-    </script>  
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -58,8 +33,20 @@
                     <ul class="navbar-nav ms-auto">
                         @if (Route::has('login'))
                             @auth
-                                <li class="nav-item">
+                                <li class="nav-item d-flex">
+                                    <!-- My Profile -->
                                     <a class="nav-link" href="/profile/{{Auth::user()->id}}">My Profile</a>
+                                    <!-- Logout -->
+                                    @if(Route::has('logout'))
+                                        <div>
+                                            <a class="nav-link" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    @endif
                                 </li>
                                 @else
                                     <li class="nav-item">
@@ -83,16 +70,16 @@
                     <div id="sje_picture-box" class="col-md-4 col-12 mb-4">
                         <a href="https://supcomje.tn/"><img src="/brand/SJE_Picture.png" id="sje_picture" class="rounded-circle" alt=""></a>
                     </div>
-                    <div class="col-md-4 col-6">
-                        <div> <b> Number of Members :</b> {{count($users)}}</div>
-                        <div id="chartContainer"></div>                        
+                    <div class="col-md-4 col-6 mt-3">
+                        <div> <u><b> Number of Members : </u></b> <div class = "offset-3 offset-lg-2" style="font-size:50px">{{count($users)}}</div></div>
                     </div>
                     <div class="col-md-4 col-6">
-                        <div>Bureau Members : </div>
+                        <div data-aos = "fade-up" data-aos-duration = "1000" data-aos-delay = "100" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
+                        <div> <b> <u> Bureau Members :</u> </b></div>
                         @foreach($users as $user)
                             @if ($user->bureau == 'on')
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                <a class="nav-link" href="/profile/{{$user->id}}"> -{{$user->firstname}}<span class="text-uppercase"> {{$user->lastname}}</span></a>
+                                <a href="/profile/{{$user->id}}" style="text-decoration:none; color:white"> -{{$user->firstname}}<span class="text-uppercase"> {{$user->lastname}}</span></a>
                             </div>
                             @endif
                         @endforeach
@@ -102,7 +89,8 @@
                 <!-- Homepage -->
                 <div class="container">
                     <div class="row mt-3" id="container">
-                        <h3>Pôle Projet</h3>
+                        <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "100" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
+                        <h3> <b> Pôle Projet </b> | {{$projet}} members :</h3>
                         @foreach($users as $user)
                             @if ($user->pole == 'Projet')
                                 <div  class="col-3 col-sm-3 col-md-2 col-lg-1 mr-lg-5">
@@ -114,8 +102,8 @@
                         @endforeach
                     </div>
                     <hr>
-                    <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "500" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
-                        <h3>Pôle Developpement Commercial et Partenariat</h3>
+                    <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "100" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
+                        <h3> <b> Pôle Developpement Commercial et Partenariat </b> | {{$devco}} members :</h3>
                         @foreach($users as $user)
                             @if ($user->pole == 'DevCo')
                                 <div class="col-3 col-sm-3 col-md-2 col-lg-1 mr-lg-5">
@@ -127,8 +115,8 @@
                         @endforeach
                     </div>
                     <hr>
-                    <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "1000" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
-                        <h3>Pôle Marketing</h3>
+                    <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "100" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
+                        <h3> <b> Pôle Marketing </b> | {{$marketing}} members :</h3>
                         @foreach($users as $user)
                             @if ($user->pole == 'Marketing')
                                 <div class="col-3 col-sm-3 col-md-2 col-lg-1 mr-lg-5">
@@ -140,8 +128,8 @@
                         @endforeach
                     </div>
                     <hr>
-                    <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "1500" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
-                        <h3>Pôle Ressources Humaines et Formation</h3>
+                    <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "100" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
+                        <h3> <b> Pôle Ressources Humaines et Formation </b> | {{$rh}} members :</h3>
                         @foreach($users as $user)
                             @if ($user->pole == 'RH')
                                 <div class="col-3 col-sm-3 col-md-2 col-lg-1 mr-lg-5">

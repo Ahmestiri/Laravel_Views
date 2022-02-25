@@ -15,7 +15,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <div data-aos = "fade-up" data-aos-delay = "1000" data-aos-duration ="2000" data-aos-offset = "200" class="d-flex justify-content-center">
+    <div data-aos = "fade-up" data-aos-delay = "1000" data-aos-duration ="1000" data-aos-offset = "200" class="d-flex justify-content-center">
         <div class=" mt-5 col-6">
             <div id = "card" class="card">
                 <div id = "card-body" class="card-body">

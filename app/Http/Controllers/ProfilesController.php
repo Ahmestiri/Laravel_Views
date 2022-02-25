@@ -29,6 +29,13 @@ class ProfilesController extends Controller
             'pole' => 'required',
             'bureau' => '',
         ]);
+        #Checkbox and Radio buttons not checked
+        if (!isset($_POST['class']))
+            $dataUser['class'] = '';
+        if (!isset($_POST['pole']))
+            $dataUser['pole'] = '';
+        if (!isset($_POST['bureau']))
+            $dataUser['bureau'] = '';
         #Update User
         auth()->user()->update($dataUser);
         #Form Request & Validation for Profile
