@@ -16,7 +16,7 @@ Also, it consists of a Back-End Part, mainly the usage of <b> Laravel </b> to :
 
 - Create Authentification (Login and Register Page)
 - Allow special input of user (Image, Checkbox and Radio Button)
-- CRUD : (Create User, Read User and Display in welcome page, Edit User's Profile, Delete Profile)
+- <b> CRUD </b>  : (Create User, Read User and display in welcome page, Edit User's Profile, Delete Profile)
 
 ## Contributors
 
