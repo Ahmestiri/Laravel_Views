@@ -12,6 +12,7 @@
     <link href="/css/welcome.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <div id="app">
@@ -66,6 +67,7 @@
         <main class="py-4">
             <div id="card-body" class="container">
                 <!-- Header -->
+                <div data-aos = "fade-down" data-aos-duration = "1000" data-aos-delay = "100" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
                 <div class="row mt-3 pt-3 col-12" id="container">
                     <div id="sje_picture-box" class="col-md-4 col-12 mb-4">
                         <a href="https://supcomje.tn/"><img src="/brand/SJE_Picture.png" id="sje_picture" class="rounded-circle" alt=""></a>
@@ -74,7 +76,6 @@
                         <div> <u><b> Number of Members : </u></b> <div class = "offset-3 offset-lg-2" style="font-size:50px">{{count($users)}}</div></div>
                     </div>
                     <div class="col-md-4 col-6">
-                        <div data-aos = "fade-up" data-aos-duration = "1000" data-aos-delay = "100" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
                         <div> <b> <u> Bureau Members :</u> </b></div>
                         @foreach($users as $user)
                             @if ($user->bureau == 'on')
@@ -89,7 +90,7 @@
                 <!-- Homepage -->
                 <div class="container">
                     <div class="row mt-3" id="container">
-                        <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "100" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
+                        <div data-aos = "fade-right" data-aos-duration = "1000" data-aos-delay = "700" data-aos-easing = "easeOutCubic" class="row mt-3" id="container">
                         <h3> <b> Pôle Projet </b> | {{$projet}} members :</h3>
                         @foreach($users as $user)
                             @if ($user->pole == 'Projet')
